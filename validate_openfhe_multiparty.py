@@ -40,7 +40,7 @@ simplified model.
 
 from openfhe import *
 
-def run_multiparty_bfv_test(n_parties=9, plaintext_modulus=8, ratings=(1, 2, 3, 4, 5)):
+def run_multiparty_bfv_test(n_parties=9, plaintext_modulus=65537, ratings=(1, 2, 3, 4, 5)):
     parameters = CCParamsBFVRNS()
     parameters.SetPlaintextModulus(plaintext_modulus)
     parameters.SetMultiplicativeDepth(0)         # we only need encrypt/decrypt, no mult

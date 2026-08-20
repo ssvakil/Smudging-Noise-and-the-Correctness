@@ -1,0 +1,45 @@
+==============================================================================
+VALIDATION 1: real 128-bit-secure BFV-style single-modulus parameters
+==============================================================================
+N (poly degree)      = 4096
+log2(q)              = 109  (q = 6.4904e+32)
+t (plaintext modulus) = 8
+Delta = q/t           = 8.1130e+31
+Fresh noise std        = 3.19
+n (threshold parties)  = 9
+
+------------------------------------------------------------------------------
+Theorem 1 (exact form) at REAL parameters, varying target security lambda
+------------------------------------------------------------------------------
+  lambda= 128  eps=2^-128   n_max_exact = 3.591804e-19   <-- infeasible for any n>1
+  lambda=  80  eps=2^-80    n_max_exact = 2.845720e+10
+  lambda=  40  eps=2^-40    n_max_exact = 3.440264e+34
+  lambda=  20  eps=2^-20    n_max_exact = 3.782611e+46
+
+If n_max_exact < 1 at these REAL (not toy) parameters too, this
+confirms Theorem 1's conclusion is not an artifact of the toy-scale
+parameters used in the original chat-session simulation.
+
+------------------------------------------------------------------------------
+Achievable single-query eps at n=9 (correctness-preserving), REAL params
+------------------------------------------------------------------------------
+Max per-party smudging std (uniform B2, exact form): 1.301117e+30
+Achieved single-query statistical distance eps*      : 2.547922e-29
+  (target 2^-128 = 2.939e-39 for comparison)
+
+  k* for 90.0% recovery confidence (Theorem 2, Eq. kstar): 0.0051  -> ceil = 1
+  k* for 99.0% recovery confidence (Theorem 2, Eq. kstar): 0.0167  -> ceil = 1
+  k* for 99.9% recovery confidence (Theorem 2, Eq. kstar): 0.0295  -> ceil = 1
+
+==============================================================================
+NOTE ON RNS-BASED DEPLOYMENTS
+==============================================================================
+Real production BFV deployments (SEAL, OpenFHE) typically use an RNS
+modulus chain (several ~30-60 bit primes) rather than one single large
+modulus. This paper's single-modulus model is a simplification stated
+explicitly in Sec. 4 of the paper. Re-running this analysis under an
+RNS chain is a natural next step and may change the numeric constants
+(though we expect the qualitative conclusion -- that n_max is far below
+realistic deployment cardinalities -- to persist, since RNS chains do
+not fundamentally change the noise-vs-modulus relationship, only how
+q is represented computationally).

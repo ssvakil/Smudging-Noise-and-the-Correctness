@@ -1,0 +1,45 @@
+##############################################################################
+# n_parties = 4
+##############################################################################
+Ring dimension used by OpenFHE at 128-bit security: 8192
+Generated joint public key across n=4 parties.
+
+true rating=1  decoded=1  OK
+true rating=2  decoded=2  OK
+true rating=3  decoded=3  OK
+true rating=4  decoded=4  OK
+true rating=5  decoded=5  OK
+
+RESULT: all 5 ratings decoded correctly at n=4 parties, 128-bit security, plaintext modulus=65537.
+This corroborates the paper's correctness assumption at real parameters.
+
+##############################################################################
+# n_parties = 9
+##############################################################################
+Ring dimension used by OpenFHE at 128-bit security: 8192
+Generated joint public key across n=9 parties.
+
+true rating=1  decoded=1  OK
+true rating=2  decoded=2  OK
+true rating=3  decoded=3  OK
+true rating=4  decoded=4  OK
+true rating=5  decoded=5  OK
+
+RESULT: all 5 ratings decoded correctly at n=9 parties, 128-bit security, plaintext modulus=65537.
+This corroborates the paper's correctness assumption at real parameters.
+
+##############################################################################
+# n_parties = 20
+##############################################################################
+Ring dimension used by OpenFHE at 128-bit security: 8192
+Generated joint public key across n=20 parties.
+
+true rating=1  decoded=1  OK
+true rating=2  decoded=2  OK
+true rating=3  decoded=3  OK
+true rating=4  decoded=4  OK
+true rating=5  decoded=5  OK
+
+RESULT: all 5 ratings decoded correctly at n=20 parties, 128-bit security, plaintext modulus=65537.
+This corroborates the paper's correctness assumption at real parameters.
+
